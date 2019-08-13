@@ -58,13 +58,11 @@ namespace CustomsListTest
 
         // write a test for when the array size changes (what is you array's starting size?)
         [TestMethod]
-        public void ArraySize_StartingSize_ArrayExpansion()
+        public void Add_ItemFive_CountToFive()
         {
             // arrange
             CustomsListClass<int> testList = new CustomsListClass<int>();
-            testList = [4];
-
-
+            int expected = 5;
             int actual;
 
             // act
@@ -76,7 +74,26 @@ namespace CustomsListTest
             actual = testList.Count;
 
             // assert
-            Assert.AreEqual(testList, actual);
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Add_ItemFive_CheckIndexFour()
+        {
+            // arrange
+            CustomsListClass<int> testList = new CustomsListClass<int>();
+            int expected = 9;
+            int actual;
+
+            // act
+            testList.Add(5);
+            testList.Add(6);
+            testList.Add(7);
+            testList.Add(8);
+            testList.Add(9);
+            actual = testList[4];
+
+            // assert
+            Assert.AreEqual(expected, actual);
         }
     }
 }
