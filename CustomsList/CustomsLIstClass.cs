@@ -13,11 +13,11 @@ namespace CustomsList
         {
             get
             {
-                return items[capacity];
+                return items[index];
             }
             set
             {
-                items[capacity] = value;
+                items[index] = value;
             }
         }
         private int count;
@@ -50,8 +50,23 @@ namespace CustomsList
 
         public void Add(T item)
         {
+            if(count == capacity)
+            {
+                ArrayResize();
+            }
             items[count] = item;
             count++;
+        }
+        public void ArrayResize()
+        {
+            
+            capacity *= 2;
+            T[]tempArray = new T[capacity];
+            for(int i = 0; i < Count; i++)
+            {
+                tempArray[i] = items[i];
+            }
+            items = tempArray;
         }
 
     }
