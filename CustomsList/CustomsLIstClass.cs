@@ -12,7 +12,7 @@ namespace CustomsList
         public T this[int index]
         {
             get
-            { 
+            {
                 return items[index];
             }
             set
@@ -49,27 +49,45 @@ namespace CustomsList
 
         public void Add(T item)
         {
-            if(count == capacity)
+            if (count == capacity)
             {
                 ArrayResize();
             }
             items[count] = item;
             count++;
         }
-        public void ArrayResize()
+        private void ArrayResize()
         {
-            
+
             capacity *= 2;
-            T[]tempArray = new T[capacity];
-            for(int i = 0; i < Count; i++)
+            T[] temporaryArray = new T[capacity];
+            for (int i = 0; i < count; i++)
             {
-                tempArray[i] = items[i];
+                temporaryArray[i] = items[i];
             }
-            items = tempArray;
+            items = temporaryArray;
         }
         public void Remove(T item)
         {
-            //method to remove at an certain index.  also updating the count of the array.
+            bool itemFound = false;
+            for (int i = 0; i < count; i++)
+            {
+                if (!itemFound)
+                {
+                    if (item.Equals(items[i]))
+                    {
+                        items[i] = items[i + 1];
+                        itemFound = true;
+                        count--;
+                    }
+                }
+                else
+                {
+                    items[i] = items[i + 1];
+                }
+                     
+            }
+
         }
     }
 }

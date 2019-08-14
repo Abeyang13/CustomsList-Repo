@@ -95,6 +95,7 @@ namespace CustomsListTest
             // assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
         public void Remove_ItemTwo_CheckIndexTwo()
         {
             // arrange
@@ -114,6 +115,7 @@ namespace CustomsListTest
             // assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
         public void Remove_ItemFour_CheckCountEqualsToThree()
         {
             // arrange
@@ -133,6 +135,7 @@ namespace CustomsListTest
             // assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
         public void Remove_ItemThree_CheckItemThreeAtIndexFour()
         {
             // arrange
@@ -153,6 +156,7 @@ namespace CustomsListTest
             // assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
         public void Remove_ItemOfEmptyLIst_CheckCountEqualsZero()
         {
             // arrange
