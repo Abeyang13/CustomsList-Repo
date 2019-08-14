@@ -95,6 +95,77 @@ namespace CustomsListTest
             // assert
             Assert.AreEqual(expected, actual);
         }
+        public void Remove_ItemTwo_CheckIndexTwo()
+        {
+            // arrange
+            CustomsListClass<int> testList = new CustomsListClass<int>();
+            int expected = 4;
+            int actual;
 
+            // act
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            testList.Add(4);
+            testList.Add(5);
+            testList.Remove(2);
+            actual = testList[2];
+
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
+        public void Remove_ItemFour_CheckCountEqualsToThree()
+        {
+            // arrange
+            CustomsListClass<int> testList = new CustomsListClass<int>();
+            int expected = 4;
+            int actual;
+
+            // act
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            testList.Add(4);
+            testList.Add(5);
+            testList.Remove(4);
+            actual = testList.Count;
+
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
+        public void Remove_ItemThree_CheckItemThreeAtIndexFour()
+        {
+            // arrange
+            CustomsListClass<int> testList = new CustomsListClass<int>();
+            int expected = 3;
+            int actual;
+
+            // act
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            testList.Add(4);
+            testList.Add(5);
+            testList.Add(3);
+            testList.Remove(3);
+            actual = testList[4];
+
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
+        public void Remove_ItemOfEmptyLIst_CheckCountEqualsZero()
+        {
+            // arrange
+            CustomsListClass<int> testList = new CustomsListClass<int>();
+            int expected = 0;
+            int actual;
+
+            // act
+            testList.Remove(1);
+            actual = testList.Count;
+
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

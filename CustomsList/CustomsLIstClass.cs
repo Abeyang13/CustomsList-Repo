@@ -12,7 +12,7 @@ namespace CustomsList
         public T this[int index]
         {
             get
-            {
+            { 
                 return items[index];
             }
             set
@@ -40,7 +40,6 @@ namespace CustomsList
                 capacity = value;
             }
         }
-
         public CustomsListClass()
         {
             capacity = 4;
@@ -68,6 +67,9 @@ namespace CustomsList
             }
             items = tempArray;
         }
-
+        public void Remove(T item)
+        {
+            //method to remove at an certain index.  also updating the count of the array.
+        }
     }
 }
