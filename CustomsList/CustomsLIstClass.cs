@@ -110,10 +110,11 @@ namespace CustomsList
             }
             return list;
         }
-        public void Plus(T itemOne, T itemTwo)
+        public static CustomsListClass<T> operator+(CustomsListClass<T>listOne,CustomsListClass<T> listTwo)
         {
-           string result = "";
-           result = itemOne.ToString() + itemTwo.ToString();
+            CustomsListClass<T> result = new CustomsListClass<T>();
+            result = listOne + listTwo;
+            return result;
         }
     }
 }
