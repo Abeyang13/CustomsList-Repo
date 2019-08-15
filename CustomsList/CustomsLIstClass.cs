@@ -13,11 +13,26 @@ namespace CustomsList
         {
             get
             {
-                return items[index];
+                try
+                {
+                    return items[index];
+                }
+                catch (IndexOutOfRangeException e)
+                {
+                    Console.WriteLine(e);
+                    return default(T);
+                }
             }
             set
             {
-                items[index] = value;
+                try
+                {
+                    items[index] = value;
+                }
+                catch (IndexOutOfRangeException e)
+                {
+                    Console.WriteLine(e);
+                }
             }
         }
         private int count;
@@ -58,7 +73,6 @@ namespace CustomsList
         }
         private void ArrayResize()
         {
-
             capacity *= 2;
             T[] temporaryArray = new T[capacity];
             for (int i = 0; i < count; i++)
@@ -85,9 +99,21 @@ namespace CustomsList
                 {
                     items[i] = items[i + 1];
                 }
-                     
             }
-
+        }
+        public override string ToString()
+        {
+            string list = "";
+            for (int i = 0; i < count; i++)
+            {
+                list += items[i].ToString();
+            }
+            return list;
+        }
+        public void Plus(T itemOne, T itemTwo)
+        {
+           string result = "";
+           result = itemOne.ToString() + itemTwo.ToString();
         }
     }
 }

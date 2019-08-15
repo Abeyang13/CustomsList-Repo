@@ -171,5 +171,56 @@ namespace CustomsListTest
             // assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void To_String_AList()
+        {
+            // arrange
+            CustomsListClass<int> testList = new CustomsListClass<int>();
+            string expected = "1234";
+            string actual;
+
+            // act
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            testList.Add(4);
+            actual = testList.ToString();
+
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ToString_AnEmptyList_ReturnEmptyList()
+        {
+            // arrange
+            CustomsListClass<int> testList = new CustomsListClass<int>();
+            string expected = "";
+            string actual;
+
+            // act
+            actual = testList.ToString();
+
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ToString_AList_ReturnOnlyOneThreeFour()
+        {
+            // arrange
+            CustomsListClass<int> testList = new CustomsListClass<int>();
+            string expected = "134";
+            string actual;
+
+            // act
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            testList.Add(4);
+            testList.Remove(2);
+            actual = testList.ToString();
+
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
