@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomsList
 {
-    public class CustomsListClass<T>
+    public class CustomsListClass<T>: IEnumerable
     {
         private T[] items;
         public T this[int index]
@@ -148,6 +149,16 @@ namespace CustomsList
             }
             return result;
         }
-        
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < items.Length; i++)
+            {
+                yield return items[i];
+            }
+        }
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();  
+        }
     }
 }
