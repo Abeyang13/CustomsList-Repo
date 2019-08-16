@@ -347,6 +347,62 @@ namespace CustomsListTest
             actual = (testListOne - testListTwo).ToString();
             // assert
             Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
+        public void Zip_ListOneAndListTwo_ResultOneTwoThreeFourFiveSix()
+        {
+            CustomsListClass<int> testListOne = new CustomsListClass<int>();
+            CustomsListClass<int> testListTwo = new CustomsListClass<int>();
+            CustomsListClass<int> newList = new CustomsListClass<int>();
+            string expected = "123456";
+            string actual;
+            // act
+            testListOne.Add(1);
+            testListOne.Add(3);
+            testListOne.Add(5);
+            testListTwo.Add(2);
+            testListTwo.Add(4);
+            testListTwo.Add(6);
+            actual = newList.Zip(testListOne,testListTwo).ToString();
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Zip_ListOneHasTwoItemsAndListTwoHas3Items_ResultShouldStopAtTheEndOfShortestList()
+        {
+            CustomsListClass<int> testListOne = new CustomsListClass<int>();
+            CustomsListClass<int> testListTwo = new CustomsListClass<int>();
+            CustomsListClass<int> newList = new CustomsListClass<int>();
+            string expected = "12346";
+            string actual;
+            // act
+            testListOne.Add(1);
+            testListOne.Add(3);
+            testListTwo.Add(2);
+            testListTwo.Add(4);
+            testListTwo.Add(6);
+            actual = newList.Zip(testListOne,testListTwo).ToString();
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Zip_ListOneHasThreeItemsAndListTwoHas2Items_ResultShouldStopAtTheEndOfShortestList()
+        {
+            CustomsListClass<int> testListOne = new CustomsListClass<int>();
+            CustomsListClass<int> testListTwo = new CustomsListClass<int>();
+            CustomsListClass<int> newList = new CustomsListClass<int>();
+            string expected = "12345";
+            string actual;
+            // act
+            testListOne.Add(1);
+            testListOne.Add(3);
+            testListOne.Add(5);
+            testListTwo.Add(2);
+            testListTwo.Add(4);
+            actual = newList.Zip(testListOne,testListTwo).ToString();
+            // assert
+            Assert.AreEqual(expected, actual);
         }
     }
 }

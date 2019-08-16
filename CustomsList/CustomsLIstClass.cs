@@ -132,5 +132,22 @@ namespace CustomsList
             }
             return result;
         }
+        public CustomsListClass<T> Zip(CustomsListClass<T> listOne, CustomsListClass<T> listTwo)
+        {
+            CustomsListClass<T> result = new CustomsListClass<T>();
+            for (int i = 0; i < listOne.count || i < listTwo.count; i++)
+            {
+                if(i < listOne.count)
+                {
+                    result.Add(listOne[i]);
+                }
+                if(i < listTwo.count)
+                {
+                    result.Add(listTwo[i]);
+                }                               
+            }
+            return result;
+        }
+        
     }
 }
