@@ -294,5 +294,59 @@ namespace CustomsListTest
             // assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void OverloadMinusOperator_WithListOneAndListTwo_ReturnListOneOriginalSinceNoValueEqualsListTwo()
+        {
+            // arrange
+            CustomsListClass<int> testListOne = new CustomsListClass<int>();
+            CustomsListClass<int> testListTwo = new CustomsListClass<int>();
+            string expected = "135";
+            string actual;
+            // act
+            testListOne.Add(1);
+            testListOne.Add(3);
+            testListOne.Add(5);
+            testListTwo.Add(2);
+            testListTwo.Add(4);
+            testListTwo.Add(6);
+            actual = (testListOne - testListTwo).ToString();
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void OverloadMinusOperator_WithListOneWithTwoValueOfFiveToListTwo_ReturnListOneWithOneAndFive()
+        {
+            // arrange
+            CustomsListClass<int> testListOne = new CustomsListClass<int>();
+            CustomsListClass<int> testListTwo = new CustomsListClass<int>();
+            string expected = "15";
+            string actual;
+            // act
+            testListOne.Add(1);
+            testListOne.Add(5);
+            testListOne.Add(5);
+            testListTwo.Add(2);
+            testListTwo.Add(4);
+            testListTwo.Add(5);
+            actual = (testListOne - testListTwo).ToString();
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void OverloadMinusOperator_WithListOneAndEmptyListTwo_ReturnAllValuesOfListOne()
+        {
+            // arrange
+            CustomsListClass<int> testListOne = new CustomsListClass<int>();
+            CustomsListClass<int> testListTwo = new CustomsListClass<int>();
+            string expected = "135";
+            string actual;
+            // act
+            testListOne.Add(1);
+            testListOne.Add(3);
+            testListOne.Add(5);
+            actual = (testListOne - testListTwo).ToString();
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
