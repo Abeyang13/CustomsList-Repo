@@ -113,7 +113,32 @@ namespace CustomsList
         public static CustomsListClass<T> operator+(CustomsListClass<T>listOne,CustomsListClass<T> listTwo)
         {
             CustomsListClass<T> result = new CustomsListClass<T>();
-            result = listOne + listTwo;
+            for (int i = 0; i < listOne.count; i++)
+            {
+                result.Add(listOne[i]);
+            }
+            for (int j = 0; j < listTwo.count; j++)
+            {
+                result.Add(listTwo[j]);
+            }
+            return result;
+        }
+        public static CustomsListClass<T> operator -(CustomsListClass<T> listOne, CustomsListClass<T> listTwo)
+        {
+            CustomsListClass<T> result = new CustomsListClass<T>();
+            for (int i = 0; i < listOne.count; i++)
+            {
+                for(int j = 0; j < listTwo.count; j++)
+                {
+                    if (listOne[i].Equals(listTwo[j]))
+                    {
+                    }
+                    else
+                    {
+                        result.Add(listOne[i]);
+                    }
+                }
+            }
             return result;
         }
     }

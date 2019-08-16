@@ -223,7 +223,7 @@ namespace CustomsListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Overload_PlusOperator_WithTwoListOneAndListTwo()
+        public void Overload_PlusOperator_WithListOneAndListTwo()
         {
             // arrange
             CustomsListClass<int> testListOne = new CustomsListClass<int>();
@@ -238,6 +238,59 @@ namespace CustomsListTest
             testListTwo.Add(4);
             testListTwo.Add(6);
             actual = (testListOne + testListTwo).ToString();
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Overload_PlusOperator_WithListOneWithTwoItemsAndListTwoWithThreeItems()
+        {
+            // arrange
+            CustomsListClass<int> testListOne = new CustomsListClass<int>();
+            CustomsListClass<int> testListTwo = new CustomsListClass<int>();
+            string expected = "13246";
+            string actual;
+            // act
+            testListOne.Add(1);
+            testListOne.Add(3);
+            testListTwo.Add(2);
+            testListTwo.Add(4);
+            testListTwo.Add(6);
+            actual = (testListOne + testListTwo).ToString();
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Overload_PlusOperator_WithEmptyListOneAndListTwo()
+        {
+            // arrange
+            CustomsListClass<int> testListOne = new CustomsListClass<int>();
+            CustomsListClass<int> testListTwo = new CustomsListClass<int>();
+            string expected = "246";
+            string actual;
+            // act
+            testListTwo.Add(2);
+            testListTwo.Add(4);
+            testListTwo.Add(6);
+            actual = (testListOne + testListTwo).ToString();
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void OverloadMinusOperator_WithListOneAndListTwo_ResultingListOneReturningWithOneMissing()
+        {
+            // arrange
+            CustomsListClass<int> testListOne = new CustomsListClass<int>();
+            CustomsListClass<int> testListTwo = new CustomsListClass<int>();
+            string expected = "35";
+            string actual;
+            // act
+            testListOne.Add(1);
+            testListOne.Add(3);
+            testListOne.Add(5);
+            testListTwo.Add(2);
+            testListTwo.Add(1);
+            testListTwo.Add(6);
+            actual = (testListOne - testListTwo).ToString();
             // assert
             Assert.AreEqual(expected, actual);
         }
