@@ -10,7 +10,7 @@
         }
                                               
 // The parameters I used for my overload - operator is CustomsListClass listOne and ListTwo which are instatiated when you make your lists
-// Within the method to find out how to see if there is a certain value that is found in each list.  I instatiated a 3rd list and it consisted of the original listOne and new CustomsListClass.  
+// Within the method to find out how to see if there is a certain value that is found in each list.  I instatiated a 3rd list and it consisted of the original listOne plus a new CustomsListClass.  My + overload method is used, and it asks for 2 generic lists in the parameters, so I have to give it 2 generic list which is listOne and new CustomsListClass<T>.  
 // By doing this I don't destroy my original listOne.  
 // The main part of the method itself is ran through a for loop of listTwo.  I also used my Remove() method for this method.  
 // Basically the for loop takes listTwo at value i which is used to compare in my Remove method.  
