@@ -16,22 +16,4 @@
 // Basically the for loop takes listTwo at value i which is used to compare in my Remove method.  
 // In the Remove() method.  If the listTwo at value i equals any of result value.  Result list will remove the first instance of that value within it's list.
 // Then I return the result list that I had created minus the value that was removed.
-[TestMethod]
-        public void OverloadMinusOperator_WithListOneAndListTwo_ResultingListOneReturningWithOneMissing()
-        {
-            // arrange
-            CustomsListClass<int> testListOne = new CustomsListClass<int>();
-            CustomsListClass<int> testListTwo = new CustomsListClass<int>();
-            string expected = "35";
-            string actual;
-            // act
-            testListOne.Add(1);
-            testListOne.Add(3);
-            testListOne.Add(5);
-            testListTwo.Add(2);
-            testListTwo.Add(1);
-            testListTwo.Add(6);
-            actual = (testListOne - testListTwo).ToString();
-            // assert
-            Assert.AreEqual(expected, actual);
- // actual = "35"
+
